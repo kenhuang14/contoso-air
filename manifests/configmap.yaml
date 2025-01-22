@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kenh-flow2-config
+  namespace: namespace-workflow-1737581360784
+  labels:
+    app.kubernetes.io/name: kenh-flow2
+    kubernetes.azure.com/generator: devhub
+data:

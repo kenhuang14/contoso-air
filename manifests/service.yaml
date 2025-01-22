@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kenh-flow2
+  namespace: namespace-workflow-1737581360784
+  labels:
+    app.kubernetes.io/name: kenh-flow2
+    kubernetes.azure.com/generator: devhub
+spec:
+  type: LoadBalancer
+  selector:
+    app.kubernetes.io/name: kenh-flow2
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
