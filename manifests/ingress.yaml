@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+  name: "test2-ingress"
+  namespace: "namespace-workflow-1743105998408"
+  labels:
+    app.kubernetes.io/name: test2-ingress
+    app.kubernetes.io/part-of: test2-project
+    kubernetes.azure.com/generator: draft
+spec:
+  ingressClassName: nginx.approuting.kubernetes.azure.com
+  rules:
+    - host: "contoso1.com"
+      http:
+        paths:
+          - backend:
+              service:
+                name: "default"
+                port:
+                  number: 3000
+            path: "/"
+            pathType: Prefix
