@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   annotations:
   name: "test5-ingress"
-  namespace: "namespace-workflow-1743108226120"
+  namespace: "namespace-workflow-1743113596545"
   labels:
     app.kubernetes.io/name: test5-ingress
     app.kubernetes.io/part-of: test5-project
