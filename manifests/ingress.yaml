@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+  name: "kenh-flow-ingress"
+  namespace: "namespace-workflow-1743184859280"
+  labels:
+    app.kubernetes.io/name: kenh-flow-ingress
+    app.kubernetes.io/part-of: kenh-flow-project
+    kubernetes.azure.com/generator: draft
+spec:
+  ingressClassName: webapprouting.kubernetes.azure.com
+  rules:
+    - host: "contoso.com"
+      http:
+        paths:
+          - backend:
+              service:
+                name: "kenh-flow"
+                port:
+                  number: 3000
+            path: "/"
+            pathType: Prefix
