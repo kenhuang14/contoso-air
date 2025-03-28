@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+  name: "kh-workflow-ingress"
+  namespace: "namespace-workflow-1743197020907"
+  labels:
+    app.kubernetes.io/name: kh-workflow-ingress
+    app.kubernetes.io/part-of: kh-workflow-project
+    kubernetes.azure.com/generator: draft
+spec:
+  ingressClassName: webapprouting.kubernetes.azure.com
+  rules:
+    - host: "contoso.com"
+      http:
+        paths:
+          - backend:
+              service:
+                name: "kh-workflow"
+                port:
+                  number: 80
+            path: "/"
+            pathType: Prefix
