@@ -1,16 +1,16 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: test-build
+  name: kh-test21
   labels:
-    app.kubernetes.io/name: test-build
-    app.kubernetes.io/part-of: test-build-project
+    app.kubernetes.io/name: kh-test21
+    app.kubernetes.io/part-of: kh-test21-project
     kubernetes.azure.com/generator: devhub
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: test-build
+    name: kh-test21
   minReplicas: 1
   maxReplicas: 5
   metrics:
