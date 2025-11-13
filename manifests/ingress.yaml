@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.azure.com/tls-cert-keyvault-managed: "true" 
+    kubernetes.azure.com/tls-cert-keyvault-uri: "https://kenh-test-keyvault.vault.azure.net/certificates/test-cert"
+  name: "kenh-workflow-ingress"
+  namespace: "namespace-workflow-1763069094532"
+  labels:
+    app.kubernetes.io/name: kenh-workflow-ingress
+    app.kubernetes.io/part-of: kenh-workflow-project
+    kubernetes.azure.com/generator: draft
+spec:
+  ingressClassName: webapprouting.kubernetes.azure.com
+  rules:
+    - host: "contoso.com"
+      http:
+        paths:
+          - backend:
+              service:
+                name: "kenh-workflow"
+                port:
+                  number: 3000
+            path: "/"
+            pathType: Prefix
+  tls:
+    - hosts:
+        - "contoso.com"
+      secretName: "keyvault-kenh-workflow-ingress"
